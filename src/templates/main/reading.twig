@@ -1,0 +1,265 @@
+{% extends 'base.twig' %}
+
+
+{% block content %}
+
+<h3 class="sub-menu">{{ translate('Reading') }}</h3>
+
+{% macro show_add_reading(user_aliases, last_user_alias_id) %}
+
+<form id="reading">
+    {{ csrf_field()|raw }}
+
+    <label for="alias"><a href="/main/alias">Add Alias</a></label>
+    <select id="alias" name="user_alias_id" value="{{ alias.id }}">
+        <option value="">{{ translate('Select alias') }}</option>
+        {% for alias in user_aliases %}
+            <option value="{{ alias.id }}" {% if alias.id == last_user_alias_id %}selected{% endif %}>{{ alias.alias }}</option> 
+        {% endfor %}
+    </select>
+
+    <label for="systolic">{{ translate('Systolic') }} *</label>
+    <input type="text" id="systolic" type="number" name="systolic">
+
+    <label for="diastolic">{{ translate('Diastolic') }} *</label>
+    <input type="text" id="diastolic" type="number" name="diastolic">
+
+    <label for="pulse">{{ translate('Pulse') }}</label>
+    <input type="text" id="pulse" type="number" name="pulse">
+
+    <button id="submit">{{ translate('Send') }}</button>
+    <div class="loadingspinner hidden"></div>
+</form>
+{% endmacro %}
+
+{% macro show_today_readings (today_readings) %}
+{% if today_readings|length > 0 %}
+
+<h3>{{ translate('Readings Today') }}</h3>
+<table>
+    <thead>
+        <tr>
+            <th>{{ translate('Time') }}</th>
+            <th>{{ translate('Systolic') }}</th>
+            <th>{{ translate('Diastolic') }}</th>
+            <th>{{ translate('Pulse') }}</th>
+            <th>{{ translate('Delete') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reading in _context.today_readings %}
+            <tr>
+                <td>{{ reading.date_created|date('H:i') }}</td>
+                <td>{{ reading.systolic }}</td>
+                <td>{{ reading.diastolic }}</td>
+                <td>{{ reading.pulse }}</td>
+                <td><button class="button-small delete-button" data-id="{{ reading.id }}">Delete</button></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endmacro %}
+
+{% macro show_weekly_averages(weekly_average) %}
+{% if weekly_average|length > 0 %}
+
+<h3>{{ translate('Weekly Average (1 year)') }}</h3>
+<table>
+    <thead>
+        <tr>
+            <th>{{ translate('Week') }}</th>
+            <th>{{ translate('Systolic') }}</th>
+            <th>{{ translate('Diastolic') }}</th>
+            <th>{{ translate('Pulse') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set current_week = 'now'|date('W') %}
+        {% for average in weekly_average %}
+            {% set week_text = average.week_number %}
+            {% if average.week_number == current_week %}
+                {% set week_text = "<span>" ~ average.week_number ~ "</span>" %}
+            {% endif %}
+
+            {% set systolic = average.systolic|round %}
+            {% set diastolic = average.diastolic|round %}
+            {% set pulse = average.pulse|round %}
+
+            <tr>
+                <td>{{ week_text|raw }}</td>
+                <td>{{ systolic }}</td>
+                <td>{{ diastolic }}</td>
+                <td>{{ pulse }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endmacro %}
+    
+{% macro show_daily_average(daily_average) %}
+{% if daily_average|length > 0 %}
+<h3>{{ translate('Daily Average (Last 30 days)') }}</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>{{ translate('Day') }}</th>
+            <th>{{ translate('Systolic') }}</th>
+            <th>{{ translate('Diastolic') }}</th>
+            <th>{{ translate('Pulse') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set current_day = 'now'|date('Y-m-d') %}
+        {% for average in daily_average %}
+            {% set day_text = average.date %}
+            {% if average.date == current_day %}
+                {% set day_text = "<span>" ~ average.date ~ "</span>" %}
+            {% endif %}
+
+            {% set systolic = average.systolic|round %}
+            {% set diastolic = average.diastolic|round %}
+            {% set pulse = average.pulse|round %}
+
+            <tr>
+                <td>{{ day_text|raw }}</td>
+                <td>{{ systolic }}</td>
+                <td>{{ diastolic }}</td>
+                <td>{{ pulse }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% if user_aliases|length > 0 %}
+    {{ macros.show_add_reading(user_aliases, last_user_alias_id) }}
+    {{ macros.show_today_readings(today_readings) }}
+    {{ macros.show_daily_average(daily_average) }}
+    {{ macros.show_weekly_averages(weekly_average) }}
+    
+
+{% else %}
+    <h3>{{ translate('No aliases found') }}</h3>
+    <p>{{ translate('You need to create an alias before you can start adding readings.') }}</p>
+    <a href="/main/alias" class="button">{{ translate('Create alias') }}</a>
+{% endif %}
+
+
+<script type="module" nonce="{{ get_nonce() }}">
+    import {
+        Pebble
+    } from '/js/pebble.js?v={{ get_version() }}';
+
+    // focus on first form input
+    document.getElementById('systolic').focus();
+
+    /**
+     * Generate a JS function that generates a date in the format yyyy-mm-dd hh:mm:ss
+     */
+    function getDateTime() {
+        var now = new Date();
+        var year = "" + now.getFullYear();
+        var month = "" + (now.getMonth() + 1);
+        if (month.length == 1) {
+            month = "0" + month;
+        }
+        var day = "" + now.getDate();
+        if (day.length == 1) {
+            day = "0" + day;
+        }
+        var hour = "" + now.getHours();
+        if (hour.length == 1) {
+            hour = "0" + hour;
+        }
+        var minute = "" + now.getMinutes();
+        if (minute.length == 1) {
+            minute = "0" + minute;
+        }
+        var second = "" + now.getSeconds();
+        if (second.length == 1) {
+            second = "0" + second;
+        }
+        return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    }
+
+    const spinner = document.querySelector('.loadingspinner');
+
+    document.addEventListener('click', async function(e) {
+        if (e.target.classList.contains('delete-button')) {
+            e.preventDefault();
+
+            // confirm
+            if (!confirm('Are you sure you want to delete this reading?')) {
+                return;
+            }
+
+            const id = e.target.dataset.id;
+            const res = await Pebble.asyncPost('/main/reading/delete/' + id);
+            if (res.error === false) {
+                Pebble.redirect('/main/reading');
+            } else {
+                Pebble.setFlashMessage(res.message, 'error', 5000);
+            }
+        }
+    });
+
+
+    document.getElementById('submit').addEventListener("click", async function(e) {
+
+        e.preventDefault();
+
+        spinner.classList.toggle('hidden');
+
+        const form = document.getElementById('reading');
+        const data = new FormData(form);
+        data.append('date_created', getDateTime());
+
+        try {
+            const res = await Pebble.asyncPost('/main/post_reading', data);
+            if (res.error === false) {
+                Pebble.redirect(res.redirect);
+            } else {
+                Pebble.setFlashMessage(res.message, 'error', 5000);
+            }
+        } catch (e) {
+            await Pebble.asyncPostError('/error/log', e.stack);
+        } finally {
+            spinner.classList.toggle('hidden');
+        }
+    });
+
+    // When user_alias_id changes, submit the form but to /main/alias/set
+    // Reload page
+    document.getElementById('alias').addEventListener('change', async function(e) {
+        e.preventDefault();
+
+        spinner.classList.toggle('hidden');
+
+        const user_alias_id = e.target.value;
+        const data = new FormData();
+        data.append('user_alias_id', user_alias_id);
+
+        try {
+            const res = await Pebble.asyncPost('/main/alias/set', data);
+            console.log(res)
+            if (res.error === false) {
+                Pebble.redirect('/main/reading');
+            } else {
+                Pebble.setFlashMessage(res.message, 'error', 5000);
+            }
+        } catch (e) {
+            await Pebble.asyncPostError('/error/log', e.stack);
+        } finally {
+            spinner.classList.toggle('hidden');
+        }
+    });
+
+</script>
+
+{% endblock %}

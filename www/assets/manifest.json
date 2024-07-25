@@ -1,0 +1,23 @@
+{
+
+  "name": "The Blood Pressure Log",
+  "short_name": "bp",
+  "start_url": "https://bp.10kilobyte.com/",
+  "description": "Log your blood pressure",
+  "icons": [
+      {
+          "src": "/favicon_io/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any maskable"
+      },
+      {
+          "src": "/favicon_io/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

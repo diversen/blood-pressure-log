@@ -1,0 +1,19 @@
+<div class="app-menu">
+    {% if is_authenticated() %}
+        <a href="/main/reading" data-path="/main/reading">{{ translate('Reading')}}</a>
+        <a href="/settings" data-path="/settings">{{ translate('Settings') }}</a>
+        <a href="/account/signout" data-path="/account/signout">{{ translate('Sign out') }}</a>
+    {% else %}
+        <a href="/account/signin" data-path="/account/signin">{{ translate('Sign in') }}</a>
+        <a href="/account/signup" data-path="/account/signup">{{ translate('Email sign up') }}</a>
+        <a href="/account/recover" data-path="/account/recover">{{ translate('Lost password') }}</a>
+        <a href="/qa" data-path="/qa">{{ translate('Q&A') }}</a>
+        
+    {% endif %}
+</div>
+
+{% if has_role('admin') %}
+    {# <div class="app-menu app-menu-admin">
+        <a href="/admin" data-path="/admin">{{ translate('Admin') }}</a>
+    </div> #}
+{% endif %}

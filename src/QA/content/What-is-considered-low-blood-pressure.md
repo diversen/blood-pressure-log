@@ -1,0 +1,13 @@
+### What is considered low blood pressure?
+
+Blood pressure is the force of blood pushing against the walls of the arteries as the heart pumps blood. It is measured in millimeters of mercury (mmHg) and comprises two numbers; the systolic, which is the top number, and the diastolic, which is the bottom number. A systolic blood pressure reading less than 90 mmHg and a diastolic blood pressure reading less than 60 mmHg is considered low blood pressure, also referred to as hypotension.
+
+Low blood pressure can be divided into categories, such as asymptomatic hypotension, orthostatic hypotension, and postprandial hypotension. Asymptomatic hypotension is when there are no visible symptoms exhibited, and blood pressure remains relatively low but stable. Orthostatic hypotension is characterized by a sudden drop in blood pressure when an individual stands up from a sitting or lying position, leading to dizziness, lightheadedness, and even fainting.
+
+Postprandial hypotension is when blood pressure drops after eating a meal. Older adults are more vulnerable to this type of hypotension, and it may cause dizziness, fainting, and confusion. Hypotension can also arise as a side effect of medications or medical conditions.
+
+While low blood pressure may appear harmless at first, it can lead to several complications, such as inadequate blood flow to vital organs like the heart, brain, and kidneys. This could cause chest pain, heart attack, or stroke. Additionally, poor blood circulation can cause fainting, and a fall from a sudden loss of consciousness can lead to injuries that could be severe.
+
+The cause of hypotension can vary from individual to individual. Age, genetics, medical conditions, and medication could contribute to low blood pressure. For instance, dehydration, severe bleeding, pregnancy, and endocrine disorders such as thyroid disease can lead to low blood pressure. Certain medications used to treat high blood pressure such as diuretics, alpha-blockers, and beta-blockers can also cause low blood pressure.
+
+In conclusion, low blood pressure is a condition characterized by a decrease in systolic and diastolic blood pressure readings, which could lead to complications such as inadequate blood flow to the vital organs. Hypotension can be classified into different categories, and the causes vary from individual to individual. Hypotension can be treated by identifying and treating the underlying cause. It is important to seek medical attention if one experiences dizziness, lightheadedness, or fainting spells, especially if it occurs frequently.

@@ -1,0 +1,11 @@
+{% extends 'error.twig' %}
+
+{% block content %}
+
+<h3 class="sub-menu">{{ title }}</h3>
+
+{% if message %}
+<pre>{{ message }}</pre>
+{% endif %}
+
+{% endblock %}

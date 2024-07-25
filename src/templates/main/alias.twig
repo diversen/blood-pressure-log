@@ -1,0 +1,105 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+<h3 class="sub-menu">{{ translate('Create new alias') }}</h3>
+
+<form id="alias">
+
+    {{ csrf_field()|raw }}
+
+    <label for="alias">{{ translate('Alias') }}</label>
+    <input type="text" id="alias" name="alias">
+    <button id="submit">{{ translate('Send') }}</button>
+    <div class="loadingspinner hidden"></div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>{{ translate('Alias') }}</th>
+            <th>{{ translate('Delete') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% if user_aliases|length == 0 %}
+            <tr>
+                <td colspan="2">{{ translate('No aliases') }}</td>
+            </tr>
+        {% else %}
+
+        {% for alias in user_aliases %}
+            <tr>
+                <td>{{ alias.alias }}</td>
+                <td><button class="button-small delete-button" data-id="{{ alias.id }}">{{ translate('Delete') }}</button></td>
+            </tr>
+        {% endfor %}
+
+        {% endif %}
+    </tbody>
+</table>
+
+<script type="module" nonce="{{ get_nonce() }}">
+
+    import {Pebble} from '/js/pebble.js?v={{ get_version() }}';
+    
+    var spinner = document.querySelector('.loadingspinner');
+
+    document.getElementById('submit').addEventListener("click", async function(e) {
+
+        e.preventDefault();
+
+        spinner.classList.toggle('hidden');
+
+        const form = document.getElementById('alias');
+        const data = new FormData(form);
+
+        try {
+            const res = await Pebble.asyncPost('/main/alias_post', data);
+            
+            if (res.error === false) {
+                Pebble.redirect('/main/alias');
+            } else {
+                Pebble.setFlashMessage(res.message, 'error');
+            }
+
+        } catch (e) {
+            await Pebble.asyncPostError('/error/log', e.stack);
+            Pebble.setFlashMessage(e.message, 'error');
+        } finally {
+            spinner.classList.toggle('hidden');
+        }
+    });
+
+    document.addEventListener('click', async function(e) {
+        if (e.target.classList.contains('delete-button')) {
+            e.preventDefault();
+
+            // confirm
+            if (!confirm('Are you sure you want to delete this alias?')) {
+                return;
+            }
+
+            spinner.classList.toggle('hidden');
+
+            try {
+                const id = e.target.dataset.id;
+                const res = await Pebble.asyncPost('/main/alias/delete/' + id);
+                if (res.error === false) {
+                    Pebble.redirect('/main/alias');
+                } else {
+                    Pebble.setFlashMessage(res.message, 'error');
+                }
+            } catch (e) {
+                await Pebble.asyncPostError('/error/log', e.stack);
+                Pebble.setFlashMessage(e.message, 'error');
+            } finally {
+                spinner.classList.toggle('hidden');
+            }
+        }
+    });
+</script>
+
+
+{% endblock %}

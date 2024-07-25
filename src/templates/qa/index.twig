@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+<h3 class="sub-menu">{{ title }}</h3>
+
+{% for qa in qa_array %}
+    <div class="qa">
+        <div class="question">
+            <a href="/qa/view/{{ qa.slug }}">{{ qa.title }}</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% macro menu_separator() %}
+  :: 
+{% endmacro %}
+
+{% macro get_day_name(day_num) %}
+    {% set days = {
+        '1': translate('monday'),
+        '2': translate('tuesday'),
+        '3': translate('wednesday'),
+        '4': translate('thursday'),
+        '5': translate('friday'),
+        '6': translate('saturday'),
+        '7': translate('sunday')
+    } %}
+    {{ days[day_num]|capitalize }}
+{% endmacro %}
+
+{% macro get_date(ts) %}
+    {{ ts|date("M d, Y") }}
+{% endmacro %}
+
+{% macro get_priority_class(task) %}
+  {% set priorities = ['low', 'minor', 'normal', 'high', 'urgent'] %}
+  {% if task.status == '0' %}
+    {{ 'priority-done' }}
+  {% else %}
+    {{ 'priority-' ~ priorities[task.priority] }}
+  {% endif %}
+{% endmacro %}
+
+{% macro get_icon(icon) %}
+  {% if icon == 'edit' %}
+    <i class="fa-solid fa-edit"></i>
+  {% elseif icon == 'add' %}
+    <i class="fa-solid fa-plus"></i>
+  {% elseif icon == 'clock' %}
+    <i class="fa-solid fa-clock"></i>
+  {% elseif icon == 'today' %}
+    {{ translate('Today') }}
+  {% elseif icon == 'delete' %}
+    {{ translate('Delete') }}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_pagination(paginator) %}
+    <div class="pagination">
+        {% set num_pages = paginator.getPages|length %}
+
+        {% if num_pages > 0 %}
+            
+            {# Previous Page Link #}
+            {% if paginator.getPrevUrl %}
+                <a class='pagination-links' href='{{ paginator.getPrevUrl }}'>&lt;&lt;</a>
+            {% else %}
+                <span class='pagination-links'>&lt;&lt;</span>
+            {% endif %}
+
+            {# Page Numbers #}
+            {% for page in paginator.getPages %}
+                {% set css_class = 'pagination-links' %}
+
+                {% if page.url %}
+                    {% if page.isCurrent %}
+                        {% set css_class = 'pagination-links pagination-current' %}
+                    {% endif %}
+                    <a class="{{ css_class }}" href="{{ page.url }}">{{ page.num }}</a>
+                {% else %}
+                    <span class="{{ css_class }}" disabled>{{ page.num }}</span>
+                {% endif %}
+
+            {% endfor %}
+
+            {# Next Page Link #}
+            {% if paginator.getNextUrl %}
+                <a class='pagination-links' href='{{ paginator.getNextUrl }}'>&gt;&gt;</a>
+            {% else %}
+                <span class='pagination-links'>&gt;&gt;</span>
+            {% endif %}
+
+        {% endif %}
+    </div>
+{% endmacro %}
+

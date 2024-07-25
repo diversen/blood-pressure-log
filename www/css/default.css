@@ -1,0 +1,278 @@
+/**
+  * Default CSS style for template
+  */
+:root {
+    --flash-color: white;
+    --flash-success-color: olivedrab;
+    --flash-notice-color: #1b1f23;
+    --flash-error-color: #cd5c5c;
+    --app-menu-text: #fff;
+    --app-menu-background: #cd5c5c;
+    --app-menu-hover: #b22222;
+    --app-menu-active: #444;
+
+}
+
+body {
+    overflow: scroll;
+}
+
+
+.flash-messages {
+
+    width: auto;
+    margin-top: 10px;
+    bottom: 10px;
+    position: fixed;
+    max-width: 95%;
+    width: 800px;
+    z-index: 1000;
+}
+
+.flash {
+    padding: 10px;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.flash-success {
+    background-color: var(--flash-success-color);
+    color: var(--flash-color);
+    opacity: 0.9;
+}
+
+
+.flash-error {
+    background-color: var(--flash-error-color);
+    color: var(--flash-color);
+}
+
+.flash-notice {
+    background-color: var(--flash-notice-color);
+    color: var(--flash-color);
+}
+
+.input-large {
+    width: 80%;
+}
+
+.loadingspinner {
+    margin-top: 10px;
+    pointer-events: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.4em solid transparent;
+    border-color: var(--text-main);
+    border-top-color: var(--selection);
+    border-radius: 50%;
+    animation: loadingspin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 30px)
+}
+
+@keyframes loadingspin {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.action-links {
+    display: table;
+}
+
+.action-links>a {
+    color: var(--text-main);
+    font-size: 0.9em;
+    padding: 4px;
+    margin-right: 4px;
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: var(--background-alt);
+}
+
+.action-links>a:hover {
+    background-color: var(--button-hover);
+}
+
+.action-links>a.large {
+    font-size: 1.2em;
+}
+
+.app-menu {
+    display: table;
+}
+
+.app-menu>a {
+    color: var(--app-menu-text);
+    font-size: 0.9em;
+    padding: 5px;
+    margin-right: 6px;
+    text-decoration: none;
+    border-radius: 6px;
+    background-color: var(--app-menu-background);
+}
+
+.app-menu>a:hover {
+    background: var(--app-menu-hover);
+}
+
+.app-menu>a.active {
+    color: var(--app-menu-text);
+}
+
+.app-menu-admin {
+    margin-top: 10px;
+}
+
+.button-small {
+    margin: 2px;
+    padding: 4px;
+    border: none;
+    font-size: 0.8em;
+}
+
+.button-small:focus {
+    margin: 2px;
+    padding: 4px;
+
+}
+
+.button-small:focus,
+a:focus {
+    box-shadow: none;
+    box-shadow: none;
+}
+
+.page {
+    display: block;
+    min-width: 100%;
+
+}
+
+.footer {
+    box-sizing: border-box;
+    padding-top: 40px;
+    position: relative;
+    bottom: 0;
+
+}
+
+.footer>ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    right: 0
+
+}
+
+.footer>ul>li {
+    padding-right: 40px;
+}
+
+
+
+.clear {
+    padding: 5px;
+}
+
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination-links {
+
+    padding: 5px;
+    font-weight: 900;
+    border: 1px solid var(--focus);
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+
+}
+
+.pagination-current {
+    background-color: var(--background);
+}
+
+div.heart {
+    color: indianred;
+}
+
+.logo {
+    padding-bottom: 20px;
+    display: flex;
+}
+
+.logo-svg {
+    margin-right: 20px;
+}
+
+a.logo-text {
+    font-size: 1.0em;
+    font-weight: 900;
+    color: indianred;
+    text-decoration: none;
+}
+
+
+#captcha {
+    cursor: pointer;
+}
+
+.error {
+    color: var(--flash-error-color);
+}
+
+
+.flex {
+    display: flex;
+}
+
+.sub-menu {
+    display: table;
+}
+
+table {
+    font-size: 1em;
+    margin-top: 10px;
+    border: 1px solid transparent;
+}
+
+td,
+th {
+    padding: 4px;
+    vertical-align: unset;
+
+}
+
+table.admin {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table.admin td,
+table.admin th {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+p {
+    display: block;
+    font-size: 1em;
+}
+
+ul {
+    display: inline-table;
+    margin: 0;
+}

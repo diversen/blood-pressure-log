@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="theme-color" content="#ffffff">
+    {% if dark_mode %}
+        <link rel="stylesheet" id="js-startup-stylesheet" href="/css/dolphin/dark.css?v={{ get_version() }}">
+    {% else %}
+        <link rel="stylesheet" id="js-startup-stylesheet" href="/css/dolphin/light.css?v={{ get_version() }}">
+    {% endif %}
+
+    <link rel="stylesheet" id="js-startup-stylesheet" href="/css/dolphin/dolphin.css?v={{ get_version() }}">
+
+    <link rel="stylesheet" href="/css/default.css?v={{ get_version() }}">
+    <link rel="stylesheet" href="/css/modification.css?v={{ get_version() }}">
+    <link rel="stylesheet" href="/css/cookie-consent.css?v={{ get_version() }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png?v={{ get_version() }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png?v={{ get_version() }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png?v={{ get_version() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css?v={{ get_version() }}" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="manifest" href="/assets/manifest.json?v={{ get_version() }}">
+
+</head>
+<body>
+
+    <div class="page">
+        {% include 'includes/logo.twig' %}
+        {% include 'includes/flash_messages.twig' %}
+
+        {% block content %}
+        {% endblock content %}
+
+        <hr>
+        <div class="footer">
+        </div>
+    </div>
+</body>
+</html>
