@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'google' => true,
+	'google' => false,
 ];
 
 
