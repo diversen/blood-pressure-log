@@ -52,6 +52,7 @@ class AppMain extends AppUtils
         $router->addClass(\App\Error\Controller::class);
         $router->addClass(\App\Settings\Controller::class);
         $router->addClass(\App\TwoFactor\Controller::class);
+        $router->addClass(\App\Admin\Controller::class);
         $router->run();
     }
 }
