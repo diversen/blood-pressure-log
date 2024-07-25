@@ -34,7 +34,7 @@ Create a database and change the settings in `config-locale/DB.php`
 Check if you can connect to the server and create the database:
 
     ./cli.sh db --server-connect
-    create database ppm;
+    create database bp;
     exit
 
 You can look at the other `config/` files, but you don't need to change these in order to run the system local now: 
