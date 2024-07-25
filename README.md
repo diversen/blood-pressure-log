@@ -17,7 +17,7 @@ Works on:  `PHP >= 8.1`
 
 Clone the source code: 
 
-    git clone https://github.com/diversen/blood-pressure-app
+    git clone https://github.com/diversen/blood-pressure-log
     cd blood-pressure-app
 
 Install composer packages:
