@@ -10,7 +10,9 @@
 <form id="reading">
     {{ csrf_field()|raw }}
 
-    <label for="alias"><a href="/main/alias">Add Alias</a></label>
+    <label for="alias">
+        <a href="/main/alias">Edit Aliases</a>
+    </label>
     <select id="alias" name="user_alias_id" value="{{ alias.id }}">
         <option value="">{{ translate('Select alias') }}</option>
         {% for alias in user_aliases %}
