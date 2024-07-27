@@ -84,7 +84,9 @@ $LANG['Image text does not match'] = 'Image text does not match';
 // Translation of file src/AppACL.php
 
 $LANG['You are not allowed to do this. You are not admin'] = 'You are not allowed to do this. You are not admin';
+$LANG['You are not allowed to access this reading'] = 'You are not allowed to access this reading';
 $LANG['You are not allowed to do this. You are not admin'] = 'You are not allowed to do this. You are not admin';
+$LANG['You are not allowed to access this reading'] = 'You are not allowed to access this reading';
 
 // Translation of file src/AppUtils.php
 
@@ -128,20 +130,18 @@ $LANG['Reading deleted'] = 'Reading deleted';
 
 // Translation of file src/Main/ReadingModel.php
 
+$LANG['You are not allowed to use this alias or it does not exist'] = 'You are not allowed to use this alias or it does not exist';
 $LANG['Systolic is not valid. It must be between 50 and 300'] = 'Systolic is not valid. It must be between 50 and 300';
 $LANG['Diastolic is not valid. It must be between 50 and 300'] = 'Diastolic is not valid. It must be between 50 and 300';
 $LANG['Pulse is not valid. It must be between 30 and 300'] = 'Pulse is not valid. It must be between 30 and 300';
-$LANG['You are not allowed to use this alias or it does not exist'] = 'You are not allowed to use this alias or it does not exist';
 $LANG['Alias must be at least one character'] = 'Alias must be at least one character';
 $LANG['You are not allowed to delete this alias'] = 'You are not allowed to delete this alias';
-$LANG['You are not allowed to access this reading'] = 'You are not allowed to access this reading';
+$LANG['You are not allowed to use this alias or it does not exist'] = 'You are not allowed to use this alias or it does not exist';
 $LANG['Systolic is not valid. It must be between 50 and 300'] = 'Systolic is not valid. It must be between 50 and 300';
 $LANG['Diastolic is not valid. It must be between 50 and 300'] = 'Diastolic is not valid. It must be between 50 and 300';
 $LANG['Pulse is not valid. It must be between 30 and 300'] = 'Pulse is not valid. It must be between 30 and 300';
-$LANG['You are not allowed to use this alias or it does not exist'] = 'You are not allowed to use this alias or it does not exist';
 $LANG['Alias must be at least one character'] = 'Alias must be at least one character';
 $LANG['You are not allowed to delete this alias'] = 'You are not allowed to delete this alias';
-$LANG['You are not allowed to access this reading'] = 'You are not allowed to access this reading';
 
 // Translation of file src/QA/Controller.php
 
@@ -282,13 +282,13 @@ $LANG['Sign out'] = 'Sign out';
 
 // Translation of file src/templates/includes/main_menu.twig
 
-$LANG['Reading'] = 'Reading';
+$LANG['Log'] = 'Log';
 $LANG['Settings'] = 'Settings';
 $LANG['Sign out'] = 'Sign out';
+$LANG['Q&A'] = 'Q&A';
 $LANG['Sign in'] = 'Sign in';
 $LANG['Email sign up'] = 'Email sign up';
 $LANG['Lost password'] = 'Lost password';
-$LANG['Q&A'] = 'Q&A';
 $LANG['Admin'] = 'Admin';
 
 // Translation of file src/templates/macros.twig
@@ -330,105 +330,6 @@ $LANG['No aliases found'] = 'No aliases found';
 $LANG['You need to create an alias before you can start adding readings.'] = 'You need to create an alias before you can start adding readings.';
 $LANG['Create alias'] = 'Create alias';
 
-// Translation of file src/templates/notification/notification.twig
-
-$LANG['Notifications'] = 'Notifications';
-$LANG['Receive notifications'] = 'Receive notifications';
-$LANG['Pause notifications'] = 'Pause notifications';
-$LANG['Your browser does not support notifiations'] = 'Your browser does not support notifiations';
-$LANG['Resume'] = 'Resume';
-$LANG['Notifications Paused. You will not receive notifications'] = 'Notifications Paused. You will not receive notifications';
-$LANG['Pause'] = 'Pause';
-$LANG['Notifications Enabled.'] = 'Notifications Enabled.';
-$LANG['You have denied notifications. Change it in your browser settings if you want to receive notifications.'] = 'You have denied notifications. Change it in your browser settings if you want to receive notifications.';
-$LANG['You have not enabled notifications.'] = 'You have not enabled notifications.';
-$LANG['Notification granted. Thanks you!'] = 'Notification granted. Thanks you!';
-$LANG['Notifications'] = 'Notifications';
-$LANG['Receive notifications'] = 'Receive notifications';
-$LANG['Pause notifications'] = 'Pause notifications';
-$LANG['Your browser does not support notifiations'] = 'Your browser does not support notifiations';
-$LANG['Resume'] = 'Resume';
-$LANG['Notifications Paused. You will not receive notifications'] = 'Notifications Paused. You will not receive notifications';
-$LANG['Pause'] = 'Pause';
-$LANG['Notifications Enabled.'] = 'Notifications Enabled.';
-$LANG['You have denied notifications. Change it in your browser settings if you want to receive notifications.'] = 'You have denied notifications. Change it in your browser settings if you want to receive notifications.';
-$LANG['You have not enabled notifications.'] = 'You have not enabled notifications.';
-$LANG['Notification granted. Thanks you!'] = 'Notification granted. Thanks you!';
-
-// Translation of file src/templates/overview/overview.twig
-
-$LANG['Total time used on project:'] = 'Total time used on project:';
-$LANG['Add new task to'] = 'Add new task to';
-$LANG['Add time to'] = 'Add time to';
-$LANG['Edit task'] = 'Edit task';
-$LANG['Move to today'] = 'Move to today';
-$LANG['Your activity:'] = 'Your activity:';
-$LANG['Task'] = 'Task';
-$LANG['Project'] = 'Project';
-$LANG['Time'] = 'Time';
-$LANG['Week'] = 'Week';
-$LANG['Current week'] = 'Current week';
-$LANG['Show full week'] = 'Show full week';
-$LANG['Show today'] = 'Show today';
-$LANG['Move exceeded to today'] = 'Move exceeded to today';
-$LANG['New task'] = 'New task';
-$LANG['Activity this week:'] = 'Activity this week:';
-
-// Translation of file src/templates/project/add.twig
-
-$LANG['Add project'] = 'Add project';
-$LANG['Title'] = 'Title';
-$LANG['Enter title'] = 'Enter title';
-$LANG['Note'] = 'Note';
-$LANG['Add an optional project note'] = 'Add an optional project note';
-$LANG['Add'] = 'Add';
-
-// Translation of file src/templates/project/edit.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Edit project'] = 'Edit project';
-$LANG['Title'] = 'Title';
-$LANG['Enter title'] = 'Enter title';
-$LANG['Note'] = 'Note';
-$LANG['Add an optional project note'] = 'Add an optional project note';
-$LANG['Project is active'] = 'Project is active';
-$LANG['Update'] = 'Update';
-$LANG['Delete'] = 'Delete';
-
-// Translation of file src/templates/project/index.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Add new project'] = 'Add new project';
-$LANG['Add project'] = 'Add project';
-$LANG['Edit project'] = 'Edit project';
-$LANG['Add new task to project'] = 'Add new task to project';
-$LANG['You have no open projects'] = 'You have no open projects';
-$LANG['Title'] = 'Title';
-$LANG['Updated'] = 'Updated';
-$LANG['Time used'] = 'Time used';
-$LANG['View inactive projects'] = 'View inactive projects';
-$LANG['View active projects'] = 'View active projects';
-
-// Translation of file src/templates/project/task_list.twig
-
-$LANG['Edit task'] = 'Edit task';
-$LANG['Add time to task'] = 'Add time to task';
-$LANG['Move to today'] = 'Move to today';
-$LANG['Show more'] = 'Show more';
-
-// Translation of file src/templates/project/view.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Add new task to project'] = 'Add new task to project';
-$LANG['Add task'] = 'Add task';
-$LANG['Edit project'] = 'Edit project';
-$LANG['Total time used on project'] = 'Total time used on project';
-$LANG['Tasks waiting'] = 'Tasks waiting';
-$LANG['Task'] = 'Task';
-$LANG['Date'] = 'Date';
-$LANG['Time'] = 'Time';
-$LANG['Completed tasks'] = 'Completed tasks';
-
 // Translation of file src/templates/settings/profile.twig
 
 $LANG['Username is empty'] = 'Username is empty';
@@ -446,95 +347,10 @@ $LANG['Select language'] = 'Select language';
 $LANG['Theme. Use dark mode'] = 'Theme. Use dark mode';
 $LANG['Update'] = 'Update';
 
-// Translation of file src/templates/task/add.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Add task'] = 'Add task';
-$LANG['Title'] = 'Title';
-$LANG['Enter title'] = 'Enter title';
-$LANG['Add note'] = 'Add note';
-$LANG['Add an optional task note'] = 'Add an optional task note';
-$LANG['Project'] = 'Project';
-$LANG['Select project'] = 'Select project';
-$LANG['Priority'] = 'Priority';
-$LANG['Urgent'] = 'Urgent';
-$LANG['High'] = 'High';
-$LANG['Normal'] = 'Normal';
-$LANG['Minor'] = 'Minor';
-$LANG['Low'] = 'Low';
-$LANG['Repeatable task. Will auto-move the task to a new date when the end date of the task is exceeded.'] = 'Repeatable task. Will auto-move the task to a new date when the end date of the task is exceeded.';
-$LANG['Deactivated'] = 'Deactivated';
-$LANG['Next day'] = 'Next day';
-$LANG['One week'] = 'One week';
-$LANG['Four weeks'] = 'Four weeks';
-$LANG['One month. First day'] = 'One month. First day';
-$LANG['One month. Last day'] = 'One month. Last day';
-$LANG['One month. First day same day name.'] = 'One month. First day same day name.';
-$LANG['One month. Last day same day name'] = 'One month. Last day same day name';
-$LANG['Close task after end date'] = 'Close task after end date';
-$LANG['Task begin date'] = 'Task begin date';
-$LANG['Pick begin date'] = 'Pick begin date';
-$LANG['Task end date'] = 'Task end date';
-$LANG['Pick end date'] = 'Pick end date';
-$LANG['Submit'] = 'Submit';
-$LANG['Submit and stay'] = 'Submit and stay';
-
-// Translation of file src/templates/task/edit.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Edit task'] = 'Edit task';
-$LANG['Title'] = 'Title';
-$LANG['Enter title'] = 'Enter title';
-$LANG['Add note'] = 'Add note';
-$LANG['Add an optional task note'] = 'Add an optional task note';
-$LANG['Project'] = 'Project';
-$LANG['Priority'] = 'Priority';
-$LANG['Repeatable task. Will auto-move the task to a new date when the end date of the task is exceeded.'] = 'Repeatable task. Will auto-move the task to a new date when the end date of the task is exceeded.';
-$LANG['Task begin date'] = 'Task begin date';
-$LANG['Pick begin date'] = 'Pick begin date';
-$LANG['Task end date'] = 'Task end date';
-$LANG['Pick end date'] = 'Pick end date';
-$LANG['Submit'] = 'Submit';
-$LANG['Complete'] = 'Complete';
-$LANG['Open'] = 'Open';
-$LANG['Delete'] = 'Delete';
-$LANG['Complete this task?'] = 'Complete this task?';
-$LANG['Delete this task. Registered time entries will be removed?'] = 'Delete this task. Registered time entries will be removed?';
-$LANG['Open this task?'] = 'Open this task?';
-
-// Translation of file src/templates/task/view.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Total time used on task'] = 'Total time used on task';
-$LANG['Task'] = 'Task';
-$LANG['Project'] = 'Project';
-$LANG['Edit task'] = 'Edit task';
-$LANG['Add new task to project'] = 'Add new task to project';
-$LANG['Add time to task'] = 'Add time to task';
-$LANG['Move to today'] = 'Move to today';
-$LANG['Note'] = 'Note';
-
 // Translation of file src/templates/test/translate.twig
 
 $LANG['Activity this week: <span class="notranslate">{week_user_total}</span>'] = 'Activity this week: <span class="notranslate">{week_user_total}</span>';
 $LANG['Activity this week: <span class="notranslate">{week_user_total}</span>'] = 'Activity this week: <span class="notranslate">{week_user_total}</span>';
-
-// Translation of file src/templates/time/add.twig
-
-$LANG['Projects'] = 'Projects';
-$LANG['Time'] = 'Time';
-$LANG['Total time used on task'] = 'Total time used on task';
-$LANG['Time used. Valid time input (hh:mm), e.g. 1:10 or 0:15'] = 'Time used. Valid time input (hh:mm), e.g. 1:10 or 0:15';
-$LANG['Time used'] = 'Time used';
-$LANG['Note'] = 'Note';
-$LANG['Add an optional note'] = 'Add an optional note';
-$LANG['Pick date'] = 'Pick date';
-$LANG['Submit'] = 'Submit';
-$LANG['Submit and stay'] = 'Submit and stay';
-$LANG['Submit and close task'] = 'Submit and close task';
-$LANG['Date'] = 'Date';
-$LANG['Complete this task?'] = 'Complete this task?';
-$LANG['Are you sure you want to delete time entry?'] = 'Are you sure you want to delete time entry?';
 
 // Translation of file src/templates/twofactor/enable.twig
 
