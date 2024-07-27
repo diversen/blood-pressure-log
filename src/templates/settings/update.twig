@@ -29,8 +29,8 @@
     <label for="timezone">{{ translate('Select your timezone') }}</label>
     {{ macros.select('timezone', timezones, user_settings['timezone'] ?? get_config('App.timezone')) }}
 
-    <label for="language">{{ translate('Select language') }}</label>
-    {{ macros.select('language', languages, user_settings['language'] ?? get_config('Language.default')) }}
+    {# <label for="language">{{ translate('Select language') }}</label>
+    {{ macros.select('language', languages, user_settings['language'] ?? get_config('Language.default')) }} #}
 
     <input id="theme_dark_mode" type="checkbox" name="theme_dark_mode" value="1" {% if user_settings['theme_dark_mode'] ?? null %}checked{% endif %}>
     <label for="theme_dark_mode">{{ translate('Theme. Use dark mode') }}</label><br>

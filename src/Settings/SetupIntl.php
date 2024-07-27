@@ -42,7 +42,5 @@ class SetupIntl extends AppUtils
         $timezone = $user_settings['timezone'] ?? $this->getConfig()->get('App.timezone');
         date_default_timezone_set($timezone);
 
-        $language = $user_settings['language'] ?? $this->getRequestLanguage();
-        $translations->loadLanguage($language);
     }
 }
