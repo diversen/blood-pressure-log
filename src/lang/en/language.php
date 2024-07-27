@@ -285,7 +285,6 @@ $LANG['Sign out'] = 'Sign out';
 $LANG['Log'] = 'Log';
 $LANG['Settings'] = 'Settings';
 $LANG['Sign out'] = 'Sign out';
-$LANG['Q&A'] = 'Q&A';
 $LANG['Sign in'] = 'Sign in';
 $LANG['Email sign up'] = 'Email sign up';
 $LANG['Lost password'] = 'Lost password';

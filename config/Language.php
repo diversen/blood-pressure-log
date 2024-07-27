@@ -18,5 +18,5 @@ return [
     'translate_base_dir_js' => 'www/js/lang', 
 
     // For doing auto translations of languages enabled
-    'google_application_credentials' => 'config-locale/pebble-xxx.json',
+    'google_application_credentials' => 'config-locale/json-key-xxx.json',
 ];

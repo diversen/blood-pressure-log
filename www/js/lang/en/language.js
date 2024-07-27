@@ -101,7 +101,6 @@ const Translation =
     "You are signed in": "You are signed in",
     "Log": "Log",
     "Settings": "Settings",
-    "Q&A": "Q&A",
     "Admin": "Admin",
     "monday": "monday",
     "tuesday": "tuesday",
