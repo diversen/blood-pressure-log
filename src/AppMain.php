@@ -14,7 +14,7 @@ use App\Settings\SetupIntl;
  */
 class AppMain extends AppUtils
 {
-    public const VERSION = "v1.0.2";
+    public const VERSION = "v1.0.4";
 
     public function __construct()
     {
